@@ -11,7 +11,7 @@
 </template>
 
 <script setup>
-const { movies, popularMovie, loading, error, fetchMovies } = useMovies()
+const { movies, popularMovie, loading, fetchMovies } = useMovies()
 
 onMounted(() => {
     fetchMovies()

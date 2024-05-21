@@ -13,7 +13,7 @@
 
 <script setup>
 const route = useRoute();
-const { movie, loading, error, fetchMovieDetails } = useMovieDetails()
+const { movie, loading, fetchMovieDetails } = useMovieDetails()
 
 onMounted(() => {
     const movieId = route.params.id

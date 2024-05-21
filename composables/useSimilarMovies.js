@@ -1,14 +1,14 @@
 import { ref } from 'vue'
 
-export function useMovieDetails() {
-    const movie = ref(null);
+export function useSimilarMovies() {
+    const similarMovies = ref(null);
     const loading = ref(true);
     const error = ref(null);
 
-    const fetchMovieDetails = async (id) => {
+    const fetchSimilarMovies = async (id) => {
         try {
-            const result = await $fetch(`/api/movie/${id}`)
-            movie.value = result;
+            const result = await $fetch(`/api/movie/${id}/similar`)
+            similarMovies.value = result;
         } catch (err) {
             error.value = err;
         } finally {
@@ -17,9 +17,9 @@ export function useMovieDetails() {
     };
 
     return {
-        movie,
+        similarMovies,
         loading,
         error,
-        fetchMovieDetails
+        fetchSimilarMovies
     };
 }

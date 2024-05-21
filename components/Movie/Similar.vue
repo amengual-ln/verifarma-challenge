@@ -10,6 +10,9 @@ const { movie } = defineProps([
     'movie'
 ])
 
-const { data: similarResults } = await useFetch("http://localhost:3000/api/movie/" + movie.id + "/similar")
-const similarMovies = similarResults.value
+const { similarMovies, fetchSimilarMovies } = useSimilarMovies()
+
+onMounted(() => {
+    fetchSimilarMovies(movie.id)
+})
 </script>
